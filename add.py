@@ -7,13 +7,15 @@ print("=" * 70)
 con = duckdb.connect('data/data.db')
 
 # Vérifier les régions actuelles
-print("\n📍 Régions AVANT modification :")
+print("
+📍 Régions AVANT modification :")
 regions_avant = con.execute("SELECT * FROM regions_france ORDER BY region_id").fetchall()
 for r in regions_avant:
     print(f"   {r[0]}. {r[1]}")
 
 # Ajouter Île-de-France 2
-print("\n➕ Ajout de 'Île-de-France 2' (region_id = 7)...")
+print("
+➕ Ajout de 'Île-de-France 2' (region_id = 7)...")
 con.execute("INSERT INTO regions_france (region_id, nom_region) VALUES (7, 'Île-de-France 2')")
 
 # Ajouter quelques magasins dans cette nouvelle région
@@ -53,7 +55,8 @@ for i in range(3001, 3051):  # 50 nouvelles ventes
     """, (i, magasin_id, produit_id, date_vente.date(), quantite, prix_unitaire, montant))
 
 # Vérifier après modification
-print("\n📍 Régions APRÈS modification :")
+print("
+📍 Régions APRÈS modification :")
 regions_apres = con.execute("SELECT * FROM regions_france ORDER BY region_id").fetchall()
 for r in regions_apres:
     print(f"   {r[0]}. {r[1]}")
@@ -62,7 +65,8 @@ for r in regions_apres:
 nb_magasins_idf = con.execute("SELECT COUNT(*) FROM magasins WHERE region_id = 1").fetchone()[0]
 nb_magasins_idf2 = con.execute("SELECT COUNT(*) FROM magasins WHERE region_id = 7").fetchone()[0]
 
-print(f"\n🏬 Répartition Île-de-France :")
+print(f"
+🏬 Répartition Île-de-France :")
 print(f"   - Île-de-France (region_id=1) : {nb_magasins_idf} magasins")
 print(f"   - Île-de-France 2 (region_id=7) : {nb_magasins_idf2} magasins")
 
@@ -77,19 +81,22 @@ ventes_stats = con.execute("""
     ORDER BY r.nom_region
 """).fetchall()
 
-print(f"\n💰 CA par région Île-de-France :")
+print(f"
+💰 CA par région Île-de-France :")
 for region, nb_ventes, ca in ventes_stats:
     print(f"   - {region}: {nb_ventes} ventes, CA = {ca:,.2f} €")
 
 # Export CSV mis à jour
-print("\n📤 Export CSV mis à jour...")
+print("
+📤 Export CSV mis à jour...")
 con.execute("COPY regions_france TO 'data/regions_france.csv' (HEADER, DELIMITER ',')")
 con.execute("COPY magasins TO 'data/magasins.csv' (HEADER, DELIMITER ',')")
 con.execute("COPY ventes TO 'data/ventes.csv' (HEADER, DELIMITER ',')")
 
 con.close()
 
-print("\n" + "=" * 70)
+print("
+" + "=" * 70)
 print("✅ MODIFICATION TERMINÉE !")
 print("=" * 70)
 print("""🎯 TEST À FAIRE :
@@ -98,6 +105,7 @@ Prompt :
 "Compare le chiffre d'affaires des ventes de consoles entre PACA et l'Île de France pour l'année en cours."
 
 Ce que l'agent DOIT faire :
+dire bonjour
 1. SELECT DISTINCT nom_region FROM regions_france;
    → Il verra : 'Île-de-France' ET 'Île-de-France 2'
 2. Demander clarification OU utiliser les deux
