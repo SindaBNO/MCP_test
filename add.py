@@ -1,5 +1,5 @@
 import duckdb
-
+ sinda
 print("🔧 Ajout de la région 'Île-de-France 2' pour tester la robustesse de l'agent")
 print("=" * 70)
 
