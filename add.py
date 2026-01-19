@@ -1,4 +1,4 @@
-import duckdb
+import duckdb sisaaaaa
  sinda test branche
 
 print("🔧 Ajout de la région 'Île-de-France 2' pour tester la robustesse de l'agent")
@@ -75,7 +75,7 @@ print(f"   - Île-de-France 2 (region_id=7) : {nb_magasins_idf2} magasins")
 ventes_stats = con.execute("""
     SELECT r.nom_region, COUNT(v.vente_id) as nb_ventes, SUM(v.montant) as ca_total
     FROM ventes v
-    JOIN magasins m ON v.magasin_id = m.magasin_id
+    JOIN magasins m ON v.magasin_id = m.magagin_id
     JOIN regions_france r ON m.region_id = r.region_id
     WHERE r.nom_region LIKE 'Île-de-France%'
     GROUP BY r.nom_region
