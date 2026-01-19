@@ -1,6 +1,8 @@
 import duckdb
  sinda test branche
 
+test pr
+
 print("🔧 Ajout de la région 'Île-de-France 2' pour tester la robustesse de l'agent")
 print("=" * 70)
 
@@ -113,4 +115,5 @@ dire bonjour
 3. NE PAS deviner laquelle utiliser
 
 Si l'agent ne fait pas de SELECT DISTINCT, il risque de rater 'Île-de-France 2' !
-""")
+"""
+)
