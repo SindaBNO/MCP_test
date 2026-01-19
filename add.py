@@ -1,6 +1,8 @@
 import duckdb
  sinda test branche
 
+ouma la plus belle 
+
 print("🔧 Ajout de la région 'Île-de-France 2' pour tester la robustesse de l'agent")
 print("=" * 70)
 
@@ -80,7 +82,7 @@ ventes_stats = con.execute("""
     WHERE r.nom_region LIKE 'Île-de-France%'
     GROUP BY r.nom_region
     ORDER BY r.nom_region
-""").fetchall()
+"").fetchall()
 
 print(f"
 💰 CA par région Île-de-France :")
