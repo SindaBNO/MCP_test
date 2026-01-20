@@ -1,4 +1,4 @@
-import duckdb sisaaaaa dddddddd
+import duckdb sisaaaaa dddddddd RABEB
 
 print("🔧 Ajout de la région 'Île-de-France 2' pour tester la robustesse de l'agent")
 print("=" * 70)
