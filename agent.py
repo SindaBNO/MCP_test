@@ -8,7 +8,7 @@ from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
 from mcp import StdioServerParameters
-
+SSSS
 # Charge les variables d'environnement depuis .env
 load_dotenv()
 
